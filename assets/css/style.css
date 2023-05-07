@@ -1,0 +1,43 @@
+body {
+  background: #15121a;
+}
+
+/* navbar */
+
+.navbar {
+  margin-top: 10px;
+}
+
+.navbar-brand {
+}
+
+.nav-item {
+  margin-right: 16px;
+  margin-left: 16px;
+}
+
+.nav-link {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.btn-login {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  color: #ffffff;
+  background: rgba(85, 66, 116, 0.1);
+  border: 2px solid #403159;
+  backdrop-filter: blur(16px);
+  border-radius: 32px;
+  padding: 8px 32px;
+  margin-left: 32px;
+}
