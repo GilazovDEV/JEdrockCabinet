@@ -1,4 +1,7 @@
 body {
+  font-family: "Montserrat";
+  font-style: normal;
+  color: #ffffff;
   background: #15121a;
 }
 
@@ -40,4 +43,24 @@ body {
   border-radius: 32px;
   padding: 8px 32px;
   margin-left: 32px;
+}
+
+/* main */
+
+.main {
+  margin-top: 200px;
+}
+
+.main__block {
+}
+
+.main-title {
+}
+.m-title {
+}
+
+.main-text {
+}
+
+.m-txt {
 }
