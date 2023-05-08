@@ -11,6 +11,10 @@ body {
   height: 100vh; */
 }
 
+hr {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
 /* navbar */
 
 .navbar {
@@ -182,7 +186,6 @@ body {
 }
 
 .my-acc {
-  margin-bottom: 16px;
 }
 
 .my-acc-txt {
@@ -195,6 +198,8 @@ body {
 }
 
 .client-backgr {
+  margin-top: 16px;
+  margin-bottom: 32px;
   width: 100%;
   height: 136px;
   background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%),
@@ -235,4 +240,46 @@ color: #FFFFFF;
 
 .gray {
   color: rgba(255, 255, 255, 0.6);
+}
+
+/* details */
+
+.details__main {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.details-block {
+
+}
+
+.d-tit {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  color: #FFFFFF;
+  margin: 0px;
+}
+
+.d-txt {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #FFFFFF;
+  margin: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.change {
+  margin-left: 24px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0px;
+
 }
