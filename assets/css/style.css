@@ -283,3 +283,28 @@ color: #FFFFFF;
   margin-left: 24px;
 
 }
+
+/* OUT */
+
+.out__main {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.out-block {
+
+}
+
+.out-p {
+  display: flex;
+  align-items: center;
+}
+
+.out-s {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #FFFFFF;
+  margin-left: 16px;
+}
