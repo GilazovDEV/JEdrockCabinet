@@ -312,10 +312,50 @@ color: #FFFFFF;
 /* NOTIFICATION */
 
 .notification-main {
-
+  padding: 20px;
 }
 
 .notification__border {
+  padding: 16px;
   background: rgba(85, 66, 116, 0.1);
   border-radius: 8px;
+}
+
+.notif-title {
+  margin-bottom: 16px;
+}
+
+.n-tit {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #FFFFFF;
+  margin: 0px;
+}
+
+.notif-text {
+
+}
+
+.n-txt {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0px;
+}
+
+.notif-date {
+  margin-top: 20px;
+}
+
+.n-d {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin: 0px; 
 }
