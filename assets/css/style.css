@@ -359,3 +359,43 @@ color: #FFFFFF;
   color: #FFFFFF;
   margin: 0px; 
 }
+
+/* transation */
+
+.trancs-main {
+  padding: 20px;
+}
+
+.trancs-block {
+  margin: 0px;
+  margin-bottom: 32px;
+}
+
+.tran-title {
+  margin: 0px;
+
+}
+
+.t-title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  color: #FFFFFF;
+  margin: 0px;
+  margin-bottom: 8px;
+}
+
+.tran-txt {
+  margin: 0px;
+
+}
+
+.t-txt {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0px;
+}
