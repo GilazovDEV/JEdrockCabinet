@@ -234,7 +234,7 @@ hr {
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
-color: #FFFFFF;
+  color: #ffffff;
   margin: 0px;
 }
 
@@ -250,7 +250,6 @@ color: #FFFFFF;
 }
 
 .details-block {
-
 }
 
 .d-tit {
@@ -258,7 +257,7 @@ color: #FFFFFF;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0px;
 }
 
@@ -267,7 +266,7 @@ color: #FFFFFF;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -281,7 +280,6 @@ color: #FFFFFF;
   color: rgba(255, 255, 255, 0.6);
   margin: 0px;
   margin-left: 24px;
-
 }
 
 /* OUT */
@@ -292,7 +290,6 @@ color: #FFFFFF;
 }
 
 .out-block {
-
 }
 
 .out-p {
@@ -305,7 +302,7 @@ color: #FFFFFF;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-left: 16px;
 }
 
@@ -330,12 +327,11 @@ color: #FFFFFF;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0px;
 }
 
 .notif-text {
-
 }
 
 .n-txt {
@@ -356,8 +352,8 @@ color: #FFFFFF;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  color: #FFFFFF;
-  margin: 0px; 
+  color: #ffffff;
+  margin: 0px;
 }
 
 /* transation */
@@ -373,7 +369,6 @@ color: #FFFFFF;
 
 .tran-title {
   margin: 0px;
-
 }
 
 .t-title {
@@ -381,14 +376,13 @@ color: #FFFFFF;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0px;
   margin-bottom: 8px;
 }
 
 .tran-txt {
   margin: 0px;
-
 }
 
 .t-txt {
@@ -398,4 +392,11 @@ color: #FFFFFF;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.6);
   margin: 0px;
+}
+
+.acc-tran {
+  width: 842px;
+  height: 304px;
+  background: rgba(85, 66, 116, 0.1);
+  border-radius: 16px;
 }
