@@ -400,3 +400,29 @@ hr {
   background: rgba(85, 66, 116, 0.1);
   border-radius: 16px;
 }
+
+.trancs-list {
+}
+
+.ul-date {
+  list-style: none;
+}
+
+.date {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.li-tran {
+}
+
+.date-txt {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+}
