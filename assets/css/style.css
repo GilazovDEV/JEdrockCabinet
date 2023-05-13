@@ -551,7 +551,6 @@ footer {
 }
 
 @media (max-width: 456px) {
-
   .main {
     margin-top: 100px;
   }
@@ -579,6 +578,10 @@ footer {
 
   .change {
     font-size: 14px;
+  }
+
+  .acc-acc {
+    height: 600px;
   }
 }
 
