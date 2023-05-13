@@ -154,19 +154,26 @@ footer {
   margin-top: 50px;
 }
 
+.ll {
+  /* display: flex;
+  flex-direction: column; */
+}
+
 .acc-nav {
   width: 405px;
   height: 200px;
   background: rgba(85, 66, 116, 0.1);
   border-radius: 16px;
   padding: 20px;
+  margin: 20px;
 }
 
 .acc-acc {
   width: 842px;
-  height: 704px; 
+  height: 704px;
   background: rgba(85, 66, 116, 0.1);
   border-radius: 16px;
+  margin: 20px;
 }
 
 .ul-acc {
@@ -423,7 +430,6 @@ footer {
   background: rgba(85, 66, 116, 0.1);
   border-radius: 16px;
   overflow: auto;
-
 }
 
 .trancs-list {
@@ -460,4 +466,24 @@ footer {
   font-weight: 400;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.6);
+}
+
+/* ADAPTATION */
+
+
+
+@media (max-width: 1400px) {
+  .ll {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .acc-nav, .acc-acc {
+    width: auto;
+  }
+
+  .col-2, .col-lg-4 {
+    width: auto;
+  }
 }
