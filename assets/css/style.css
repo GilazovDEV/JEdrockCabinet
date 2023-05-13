@@ -47,7 +47,7 @@ hr {
 }
 
 .navbar-toggler-icon {
-  background-image: url('../img/menu.png');
+  background-image: url("../img/menu.png");
 }
 
 .navbar-toggler:focus {
@@ -79,7 +79,8 @@ hr {
 footer {
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 180px;
+  padding: 20px;
   text-align: center;
 }
 
@@ -107,7 +108,6 @@ footer {
 }
 
 .main__block {
-  width: 600px;
   margin: 0px;
 }
 
@@ -159,9 +159,8 @@ footer {
 }
 
 .q {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
+  float: right;
+  margin-top: -50px;
 }
 
 /* ACCOUNT CSS */
@@ -329,12 +328,13 @@ footer {
   transition: all 0.3s;
 }
 
-.nick, .email {
+.nick,
+.email {
   margin-right: 5px;
 }
 
 .change:hover {
-  color:  #a782e6;
+  color: #a782e6;
   transition: all 0.3s;
 }
 
@@ -364,7 +364,7 @@ footer {
 }
 
 .out-s:hover {
-  color:  #a782e6;
+  color: #a782e6;
   transition: all 0.2s;
 }
 
@@ -490,7 +490,6 @@ footer {
   padding-left: 20px;
   padding-right: 20px;
   list-style: none;
-
 }
 
 .date {
@@ -522,7 +521,8 @@ footer {
   }
 
   .acc-nav,
-  .acc-acc, .acc-tran {
+  .acc-acc,
+  .acc-tran {
     width: auto;
   }
 
@@ -532,14 +532,34 @@ footer {
   }
 }
 
-@media (max-width: 769px){
+@media (max-width: 992px) {
+  .btn-login {
+    margin: 0px;
+  }
+}
+
+@media (max-width: 769px) {
   .trancs-list {
     /* flex-direction: column; */
     flex-wrap: wrap;
   }
+
+  .q {
+    float: none;
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 456px) {
+
+  .main {
+    margin-top: 100px;
+  }
+
+  .m-title {
+    font-size: 28px;
+  }
+
   .cl-nick {
     display: flex;
     flex-wrap: wrap;
@@ -548,7 +568,8 @@ footer {
 
   .my-acc-txt,
   .d-tit,
-  .my-notif, .t-title {
+  .my-notif,
+  .t-title {
     font-size: 20px;
   }
 
@@ -562,7 +583,6 @@ footer {
 }
 
 @media (max-width: 352px) {
-
   .cl-nick {
     display: flex;
     flex-wrap: wrap;
