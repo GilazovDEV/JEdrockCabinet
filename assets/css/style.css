@@ -398,6 +398,15 @@ footer {
 
 /* transation */
 
+.acc-tran {
+  width: 842px;
+  height: 304px;
+  background: rgba(85, 66, 116, 0.1);
+  border-radius: 16px;
+  overflow: auto;
+  margin: 20px;
+}
+
 .trancs-main {
   padding: 20px;
 }
@@ -434,14 +443,6 @@ footer {
   margin: 0px;
 }
 
-.acc-tran {
-  width: 842px;
-  height: 304px;
-  background: rgba(85, 66, 116, 0.1);
-  border-radius: 16px;
-  overflow: auto;
-}
-
 .trancs-list {
   display: flex;
 }
@@ -457,6 +458,7 @@ footer {
   padding-left: 20px;
   padding-right: 20px;
   list-style: none;
+
 }
 
 .date {
@@ -488,13 +490,20 @@ footer {
   }
 
   .acc-nav,
-  .acc-acc {
+  .acc-acc, .acc-tran {
     width: auto;
   }
 
   .col-2,
   .col-lg-4 {
     width: auto;
+  }
+}
+
+@media (max-width: 769px){
+  .trancs-list {
+    /* flex-direction: column; */
+    flex-wrap: wrap;
   }
 }
 
@@ -507,7 +516,7 @@ footer {
 
   .my-acc-txt,
   .d-tit,
-  .my-notif {
+  .my-notif, .t-title {
     font-size: 20px;
   }
 
@@ -516,7 +525,14 @@ footer {
   }
 }
 
-@media (max-width: 312px) {
+@media (max-width: 352px) {
+
+  .cl-nick {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+
   .my-acc-txt,
   .d-tit,
   .my-notif {
