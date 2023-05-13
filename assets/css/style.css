@@ -583,6 +583,10 @@ footer {
   .acc-acc {
     height: 600px;
   }
+
+  footer {
+    margin-top: 130px;
+  }
 }
 
 @media (max-width: 352px) {
