@@ -309,7 +309,17 @@ footer {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.6);
   margin: 0px;
-  margin-left: 24px;
+  margin-left: 5px;
+  transition: all 0.3s;
+}
+
+.nick, .email {
+  margin-right: 5px;
+}
+
+.change:hover {
+  color:  #a782e6;
+  transition: all 0.3s;
 }
 
 /* OUT */
@@ -334,6 +344,12 @@ footer {
   font-size: 16px;
   color: #ffffff;
   margin-left: 16px;
+  transition: all 0.2s;
+}
+
+.out-s:hover {
+  color:  #a782e6;
+  transition: all 0.2s;
 }
 
 /* NOTIFICATION */
@@ -522,6 +538,10 @@ footer {
 
   .n-txt {
     font-size: 15px;
+  }
+
+  .change {
+    font-size: 14px;
   }
 }
 
