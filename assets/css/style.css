@@ -378,6 +378,8 @@ footer {
   padding: 16px;
   background: rgba(85, 66, 116, 0.1);
   border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .my-notif {
