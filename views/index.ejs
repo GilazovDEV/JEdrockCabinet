@@ -53,8 +53,12 @@
                             <p class="m-txt">Идеальный сервер для спокойной игры и раскрытия собственного творческого
                                 потенциала в ванильном выживании с игроками.</p>
                         </div>
-                        <button class="btn-login-main" type="submit">Войти</button>
-
+                        <button class="btn-login-main" onclick="oAuth()">Войти</button>
+                        <script>
+                            function oAuth() {
+                                location.replace("https://discord.com/api/oauth2/authorize?client_id=1095721219275358330&redirect_uri=http%3A%2F%2Fspace-captcha.online%3A8086%2F&response_type=code&scope=identify")
+                            }
+                        </script>
                     </div>
                 </div>
 
