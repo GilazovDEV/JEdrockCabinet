@@ -9,7 +9,7 @@ app.set("view engine", "ejs");
 app.get("/", (request, response) => {
   if (request.query.code) {
     let clientID = "1095721219275358330";
-    let redirect_uri = "http://127.0.0.1:5000/";
+    let redirect_uri = "http://127.0.05000/";
     let clientSecret = "B1qtEZD2zLSUEpju5tsepwnroPkKiQh6";
     let requestPayload = {
       redirect_uri,
