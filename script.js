@@ -48,6 +48,14 @@ app.get("/account", (request, response) => {
   response.render("account");
 });
 
+app.get("/notifications", (request, response) => {
+  response.render("notifications");
+});
+
+app.get("/transation", (request, response) => {
+  response.render("transation");
+});
+
 app.listen(5000, () => {
   console.log("server load in 5000 port");
 });
