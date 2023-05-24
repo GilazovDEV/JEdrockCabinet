@@ -34,7 +34,7 @@ app.get("/", (request, response) => {
 
           console.log(data.body);
 
-        response.redirect("/main");
+        response.redirect("/account");
       })
       .catch((err) => {
         response.redirect("/index");
@@ -44,8 +44,8 @@ app.get("/", (request, response) => {
   }
 });
 
-app.get("/main", (request, response) => {
-  response.render("main");
+app.get("/account", (request, response) => {
+  response.render("account");
 });
 
 app.listen(5000, () => {
