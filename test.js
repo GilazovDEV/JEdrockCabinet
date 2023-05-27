@@ -60,14 +60,15 @@ client.on("ready", () => {
 client.on("messageCreate", (message) => {
     if (message.channel.id === channelID) {
       console.log(`New message in ${message.channel.name} from ${message.author.username}: ${message.content}`);
-      io.emit("newMessage", {
+      const messageObject = {
         content: message.content,
         author: message.author.username,
         avatar: message.author.avatarURL(),
-      });
+      };
+      io.emit("newMessage", messageObject);
     }
   });
-  
+
 client.login("MTA5OTEwMDUzNzk4MDQ1Mjk0NQ.GBn_JH.IvXtIdeqqUxvB8J7vfh-eJx3ppidu5HasIYlRc");
 
 app.use(express.static("public"));

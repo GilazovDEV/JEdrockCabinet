@@ -24,6 +24,7 @@
   <head>
     <title>Discord Channel Messages</title>
     <script src="/node_modules/socket.io/client-dist/socket.io.js"></script>
+    <script src="/test.js"></script>
   </head>
   <body>
     <h1>Discord Channel Messages</h1>
@@ -36,11 +37,13 @@
         const img = document.createElement("img");
         img.src = message.avatar;
         img.alt = message.author;
-        li.innerText = message.content;
-        li.insertBefore(img, li.firstChild);
+        const content = document.createElement("div");
+        content.classList.add("content");
+        content.innerText = message.content;
+        li.appendChild(img);
+        li.appendChild(content);
         messageList.appendChild(li);
       });
     </script>
-
   </body>
 </html>
