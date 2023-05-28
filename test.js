@@ -34,7 +34,103 @@
 //   console.log("Server started on port 3000");
 // });
 
+// const express = require("express");
+// const app = express();
+// const port = 3000;
 
+// const { Client, GatewayIntentBits } = require("discord.js");
+// const client = new Client({
+//   intents: [
+//     GatewayIntentBits.MessageContent,
+//     GatewayIntentBits.Guilds,
+//     GatewayIntentBits.GuildMessages,
+//     GatewayIntentBits.GuildMembers,
+//     GatewayIntentBits.GuildIntegrations,
+//   ],
+// });
+
+// const channelID = "1111023534030995557";
+
+// client.on("ready", () => {
+//   console.log(`Logged in as ${client.user.tag}!`);
+// });
+
+// client.on("messageCreate", (message) => {
+//   if (message.channel.id === channelID) {
+//     console.log(`New message in ${message.channel.name} from ${message.author.username}: ${message.content}`);
+//     const messageObject = {
+//       content: message.content,
+//       author: message.author.username,
+//       avatar: message.author.avatarURL(),
+//     //   channel: message.channel.name,
+//     };
+//     app.locals.messageObject = messageObject;
+//   }
+// });
+
+// client.login("MTA5OTEwMDUzNzk4MDQ1Mjk0NQ.GBn_JH.IvXtIdeqqUxvB8J7vfh-eJx3ppidu5HasIYlRc");
+
+// app.get("/", (req, res) => {
+//   const messageObject = app.locals.messageObject || {};
+//   res.send(`
+
+//   <html lang="en">
+
+//   <head>
+//       <meta charset="UTF-8">
+//       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//       <title>LifeWell - Site</title>
+//       <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+//       <link rel="stylesheet" href="../assets/css/style.css">
+
+//       <link
+//           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+//           rel="stylesheet">
+//   </head>
+
+//   <body>
+//   <p class="my-notif">Мои уведомления</p>
+//   </div>
+// </div>
+// </div>
+// <div class="col-12">
+// <div class="notificationborder">
+//   <div class="row">
+//     <div class="col-2 col-lg-4">
+//       <div class="avatar">
+//           <img src="${messageObject.avatar}" alt="">
+//       </div>
+//     </div>
+//     <div class="col-10 col-lg-8">
+//       <div class="notificationtext">
+//           <div class="notificationtitle">
+//               <h6 class="time">${new Date().toLocaleString()}</h6>
+//               <h5 class="user">${messageObject.author}</h5>
+//           </div>
+//           <p>${messageObject.content}</p>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+// </div>
+// </div>
+// </div>
+
+// </div>
+// </div>
+// </section>
+
+// <script src="../assets/js/bootstrap.bundle.min.js"></script>
+// </body>
+
+// </html>
+//    `);
+// });
+
+// app.listen(port, () => {
+//   console.log(`Server listening at http://localhost:${port}`);
+// });
 
 const express = require("express");
 const app = express();
@@ -53,27 +149,32 @@ const client = new Client({
 
 const channelID = "1111023534030995557";
 
+const messages = []; // создаем массив для хранения сообщений
+
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on("messageCreate", (message) => {
   if (message.channel.id === channelID) {
-    console.log(`New message in ${message.channel.name} from ${message.author.username}: ${message.content}`);
+    console.log(
+      `New message in ${message.channel.name} from ${message.author.username}: ${message.content}`
+    );
     const messageObject = {
       content: message.content,
       author: message.author.username,
       avatar: message.author.avatarURL(),
-    //   channel: message.channel.name,
+      //   channel: message.channel.name,
     };
-    app.locals.messageObject = messageObject;
+    messages.push(messageObject); // добавляем новое сообщение в массив
   }
 });
 
-client.login("MTA5OTEwMDUzNzk4MDQ1Mjk0NQ.GBn_JH.IvXtIdeqqUxvB8J7vfh-eJx3ppidu5HasIYlRc");
+client.login(
+  "MTA5OTEwMDUzNzk4MDQ1Mjk0NQ.GBn_JH.IvXtIdeqqUxvB8J7vfh-eJx3ppidu5HasIYlRc"
+);
 
 app.get("/", (req, res) => {
-  const messageObject = app.locals.messageObject || {};
   res.send(`
 
 
@@ -120,7 +221,7 @@ app.get("/", (req, res) => {
       <section class="main-account">
           <div class="container">
               <div class="row ll">
-                  <div class="col-2 col-lg-4">
+                  <div class="col-12 col-lg-4">
                       <div class="acc-nav">
                           <ul class="ul-acc">
                               <a class="a-acc" href="../account"><li class="li-acc">Мой аккаунт</li></a>
@@ -130,44 +231,57 @@ app.get("/", (req, res) => {
                       </div>
                   </div>
   
-                  <div class="col-2 col-lg-4">
-                      <div class="acc-acc">
+                  <div class="col-12 col-lg-8">
+                      <div class="row">
+                        <div class="col-12">
                           <div class="notification-main">
                               <div class="notif-name">
                                   <p class="my-notif">Мои уведомления</p>
                               </div>
-                              <div class="notification__border">
-                                  <div class="notif-title">
-                                      <p class="n-tit">Новости</p>
-                                  </div>
-                                  <div class="notif-text">
-                                      <p class="n-txt">${messageObject.content}</p>
-                                  </div>
-  
-                                  <div class="notif-date">
-                                      <p class="n-d">28.05.23</p>
-                                  </div>
-                              </div>
                           </div>
+                        </div>
+                        ${messages
+                          .map(
+                            (messageObject) => `
+                        <div class="col-12 col-lg-4">
+                          <div class="notification__border">
+                              <div class="row">
+                                <div class="col-2 col-lg-4">
+                                  <div class="avatar">
+                                      <img src="${messageObject.avatar}" alt="">
+                                  </div>
+                                </div>
+                                <div class="col-10 col-lg-8">
+                                  <div class="notification__text">
+                                      <div class="notification__title">
+                                          <h6 class="time">${new Date().toLocaleString()}</h6>
+                                          <h5 class="user">${
+                                            messageObject.author
+                                          }</h5>
+                                      </div>
+                                      <p>${messageObject.content}</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                        </div>
+                        `
+                          )
+                          .join("")}
                       </div>
-  
                   </div>
+  
               </div>
           </div>
-  
       </section>
   
-      <footer>
-          <a href="https://t.me/dgilyazov" class="f-dev">Developed: <span class="dev">GilazovDEV</span></a>
-      </footer>
-  
-      <script src="../assets/js/bootstrap.min.js"></script>
+      <script src="../assets/js/bootstrap.bundle.min.js"></script>
   </body>
   
   </html>
-   `);
+`);
 });
 
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server is running on port ${port}`);
 });
