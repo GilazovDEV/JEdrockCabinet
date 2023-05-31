@@ -105,7 +105,7 @@ app.get("/", (request, response) => {
       })
       .catch((err) => {
         console.log(err);
-        response.redirect("/index");
+        response.redirect("/inъdex");
       });
   } else {
     response.render("index");
