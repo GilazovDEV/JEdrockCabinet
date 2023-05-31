@@ -97,7 +97,10 @@ app.get("/", (request, response) => {
           .then((userData) => {
             console.log(userData.body);
             const avatarUrl = `https://cdn.discordapp.com/avatars/${userData.body.id}/${userData.body.avatar}.png`;
-            response.render("account", { avatarUrl }); // передаем URL аватара в шаблон
+            const bannerUrl = userData.body.banner ? `https://cdn.discordapp.com/banners/${userData.body.id}/${userData.body.banner}.png` : null;
+            const username = userData.body.username;
+            const discriminator = userData.body.discriminator;
+            response.render("account", { avatarUrl, bannerUrl, username, discriminator }); // передаем URL аватара, баннера, ника и дискриминатора в шаблон
           })
           .catch((err) => {
             console.log(err);

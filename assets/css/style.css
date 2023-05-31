@@ -300,6 +300,11 @@ footer {
   margin: 0px;
 }
 
+.cl-image {
+  width: 100px;
+  border-radius: 100px;
+}
+
 .gray {
   color: rgba(255, 255, 255, 0.6);
 }
