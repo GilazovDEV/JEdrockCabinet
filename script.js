@@ -127,3 +127,5 @@ app.get("/transation", (request, response) => {
 app.listen(5000, () => {
   console.log("server load in 5000 port");
 });
+
+// сделать проверку на айди в жсон
