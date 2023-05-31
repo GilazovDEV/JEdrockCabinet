@@ -96,7 +96,8 @@ app.get("/", (request, response) => {
           })
           .then((userData) => {
             console.log(userData.body);
-            response.redirect("/account");
+            const avatarUrl = `https://cdn.discordapp.com/avatars/${userData.body.id}/${userData.body.avatar}.png`;
+            response.render("account", { avatarUrl }); // передаем URL аватара в шаблон
           })
           .catch((err) => {
             console.log(err);
@@ -105,7 +106,7 @@ app.get("/", (request, response) => {
       })
       .catch((err) => {
         console.log(err);
-        response.redirect("/inъdex");
+        response.redirect("/index");
       });
   } else {
     response.render("index");
