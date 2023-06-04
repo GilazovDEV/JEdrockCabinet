@@ -542,11 +542,6 @@ footer {
   text-align: center;
 }
 
-.err-h, .err-p {
-  margin: 0px;
-  padding: 10px;
-}
-
 .btns-err {
   margin-top: 20px;
 }
