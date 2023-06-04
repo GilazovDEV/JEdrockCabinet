@@ -52,27 +52,34 @@
                     </div>
                 </div>
 
+                
                 <div class="col-2 col-lg-4">
                     <div class="acc-acc">
+
                         <div class="notification-main">
                             <div class="notif-name">
                                 <p class="my-notif">Мои уведомления</p>
                             </div>
+                            <% for (let i = messages.length - 1; i >= 0; i--) { %>
+                                <% const message = messages[i]; %>
+                                <% const messageDate = message.createdAt.getDate(); %>
+                                <% const messageMonth = message.createdAt.getMonth() + 1; %>
+                                <% const messageYear = message.createdAt.getFullYear().toString().slice(-2); %>                              
                             <div class="notification__border">
                                 <div class="notif-title">
-                                    <p class="n-tit">Test</p>
+                                    <p class="n-tit"><%= message.channel.name %></p>
                                 </div>
                                 <div class="notif-text">
-                                    <p class="n-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni fuga delectus quos architecto explicabo consequuntur beatae labore nesciunt, eligendi dolor voluptatum magnam iste temporibus quasi deleniti! Quam error fuga libero.</p>
+                                    <p class="n-txt"><%= message.author.username %>: <%= message.content %></p>
                                 </div>
 
                                 <div class="notif-date">
-                                    <p class="n-d">20.05.23</p>
+                                    <p class="n-d"><%= messageDate %>.<%= messageMonth %>.<%= messageYear %></p>
                                 </div>
                             </div>
+          <% } %>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

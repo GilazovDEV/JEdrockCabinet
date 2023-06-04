@@ -393,8 +393,17 @@ footer {
 /* NOTIFICATION */
 
 .notification-main {
+  width: 842px;
+  height: 704px;
+  overflow-y: auto;
   padding: 20px;
 }
+
+.notification-main::-webkit-scrollbar {
+  width: 0px;
+  background-color: none;
+}
+
 
 .notification__border {
   padding: 16px;
