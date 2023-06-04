@@ -535,6 +535,43 @@ footer {
   color: rgba(255, 255, 255, 0.6);
 }
 
+/* ERROR PAGE */
+
+.error-block {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.err-h, .err-p {
+  margin: 0px;
+  padding: 10px;
+}
+
+.btns-err {
+  margin-top: 20px;
+}
+
+.err-btn {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  color: #ffffff;
+  background: rgba(85, 66, 116, 0.1);
+  border: 2px solid #403159;
+  backdrop-filter: blur(16px);
+  border-radius: 32px;
+  text-decoration: none;
+  padding: 8px 32px;
+  transition: all 0.3s;
+}
+
+.err-btn:hover {
+  border: 2px solid #ffffff;
+  transition: all 0.3s;
+}
+
+
 /* ADAPTATION */
 
 @media (max-width: 1400px) {
