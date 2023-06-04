@@ -12,6 +12,24 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+
+
+
+        <style>
+            .client-backgr {
+                margin-top: 16px;
+                margin-bottom: 32px;
+                width: 100%;
+                height: 136px;
+                background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%),
+                    url("<%= bannerUrl %>");
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border-radius: 16px;
+            }
+        </style>
+
 </head>
 
 <body>
@@ -45,9 +63,15 @@
                 <div class="col-2 col-lg-4">
                     <div class="acc-nav">
                         <ul class="ul-acc">
-                            <a class="a-acc" href="../account"><li class="li-acc">Мой аккаунт</li></a>
-                            <a class="a-acc" href="../notifications"><li class="li-acc">Мои уведомления</li></a>
-                            <a class="a-acc" href="../transation"><li class="li-acc">Мои транкзации</li></a>
+                            <a class="a-acc" href="../account">
+                                <li class="li-acc">Мой аккаунт</li>
+                            </a>
+                            <a class="a-acc" href="../notifications">
+                                <li class="li-acc">Мои уведомления</li>
+                            </a>
+                            <a class="a-acc" href="../transation">
+                                <li class="li-acc">Мои транкзации</li>
+                            </a>
                         </ul>
                     </div>
                 </div>
@@ -63,11 +87,13 @@
                                 <div class="client-backgr">
                                     <div class="block-client">
                                         <div class="cl-img">
-                                            <img src="/assets/img/2.png" alt="">
+                                            <img class="cl-image" src="<%= avatarUrl %>" alt="">
                                         </div>
                                         <div class="client-text">
                                             <p class="cl-txt">Игрок</p>
-                                            <p class="cl-nick">Alphа<span class="gray">#1001</span></p>
+                                            <p class="cl-nick">
+                                                <%= username %><span class="gray">#<%= discriminator %></span>
+                                            </p>
                                         </div>
                                     </div>
 
@@ -82,8 +108,10 @@
                                         </div>
 
                                         <div class="details-info">
-                                            <p class="d-txt"><span class="nick">MrPonyBoy9579</span> — <span class="change">Изменить ник</span></p>
-                                            <p class="d-txt"><span class="email">******la@outlook.com</span> — <span class="change">Изменить почту</span></p>
+                                            <p class="d-txt"><span class="nick">
+                                                    <%= username %>
+                                                </span> — <span class="change">Изменить ник</span></p>
+                                            <!-- <p class="d-txt"><span class="email">******ev@gmail.com</span> — <span class="change">Изменить почту</span></p> -->
                                             <p class="d-txt"></p>
 
                                         </div>
@@ -94,7 +122,8 @@
 
                                 <div class="out__main">
                                     <div class="out-block">
-                                       <p class="out-p"><img src="/assets/img/out.png" alt=""> <span class="out-s">Log Out</span></p>
+                                        <p class="out-p"><img src="/assets/img/out.png" alt=""> <span class="out-s">Log
+                                                Out</span></p>
                                     </div>
                                 </div>
                             </div>
