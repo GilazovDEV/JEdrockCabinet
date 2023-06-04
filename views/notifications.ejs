@@ -45,14 +45,23 @@
                 <div class="col-2 col-lg-4">
                     <div class="acc-nav">
                         <ul class="ul-acc">
-                            <a class="a-acc" href="../account"><li class="li-acc">Мой аккаунт</li></a>
-                            <a class="a-acc" href="../notifications"><li class="li-acc">Мои уведомления</li></a>
-                            <a class="a-acc" href="../transation"><li class="li-acc">Мои транкзации</li></a>
+                            <a class="a-acc" href="../account">
+                                <li class="li-acc">Мой аккаунт</li>
+                            </a>
+                            <a class="a-acc" href="../notifications">
+                                <li class="li-acc">Мои уведомления</li>
+                            </a>
+                            <a class="a-acc" href="../transation">
+                                <li class="li-acc">Мои транкзации</li>
+                            </a>
+                            <a class="a-acc" href="../chat">
+                                <li class="li-acc">Голосовой чат</li>
+                            </a>
                         </ul>
                     </div>
                 </div>
 
-                
+
                 <div class="col-2 col-lg-4">
                     <div class="acc-acc">
 
@@ -60,24 +69,43 @@
                             <div class="notif-name">
                                 <p class="my-notif">Мои уведомления</p>
                             </div>
-                            <% for (let i = messages.length - 1; i >= 0; i--) { %>
-                                <% const message = messages[i]; %>
-                                <% const messageDate = message.createdAt.getDate(); %>
-                                <% const messageMonth = message.createdAt.getMonth() + 1; %>
-                                <% const messageYear = message.createdAt.getFullYear().toString().slice(-2); %>                              
-                            <div class="notification__border">
-                                <div class="notif-title">
-                                    <p class="n-tit"><%= message.channel.name %></p>
-                                </div>
-                                <div class="notif-text">
-                                    <p class="n-txt"><%= message.author.username %>: <%= message.content %></p>
-                                </div>
+                            <% for (let i=messages.length - 1; i>= 0; i--) { %>
+                                <% const message=messages[i]; %>
+                                    <% const cleanedContent=message.content.replace(/<@&\d+>/g, ''); %>
+                                        <% const messageDate=message.createdAt.getDate(); %>
+                                            <% const messageMonth=message.createdAt.getMonth() + 1; %>
+                                                <% const
+                                                    messageYear=message.createdAt.getFullYear().toString().slice(-2); %>
+                                                    <div class="notification__border">
+                                                        <div class="notif-title">
+                                                            <p class="n-tit">
+                                                                <%= message.channel.name %>
+                                                            </p>
+                                                        </div>
+                                                        <div class="notif-text">
+                                                            <p class="n-txt">
+                                                                <%= message.author.username %>: <%= cleanedContent %>
+                                                                        <% if (message.attachments.size> 0) { %>
+                                                                            <% const
+                                                                                attachment=message.attachments.first();
+                                                                                %>
+                                                                                <% if (attachment && attachment.url) {
+                                                                                    %>
+                                                                                    <img src="<%= attachment.url %>"
+                                                                                        alt="Attachment" width="300px">
+                                                                                    <% } %>
+                                                                                        <% } %>
+                                                            </p>
+                                                        </div>
 
-                                <div class="notif-date">
-                                    <p class="n-d"><%= messageDate %>.<%= messageMonth %>.<%= messageYear %></p>
-                                </div>
-                            </div>
-          <% } %>
+                                                        <div class="notif-date">
+                                                            <p class="n-d">
+                                                                <%= messageDate %>.<%= messageMonth %>.<%= messageYear
+                                                                            %>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <% } %>
                         </div>
                     </div>
                 </div>

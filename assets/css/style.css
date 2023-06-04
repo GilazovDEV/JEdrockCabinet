@@ -381,6 +381,7 @@ footer {
   font-weight: 500;
   font-size: 16px;
   color: #ffffff;
+  text-decoration: none;
   margin-left: 16px;
   transition: all 0.2s;
 }

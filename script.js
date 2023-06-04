@@ -121,50 +121,14 @@ const { Client,GatewayIntentBits} = require('discord.js');
 const client = new Client({ intents: [GatewayIntentBits.MessageContent,GatewayIntentBits.Guilds,GatewayIntentBits.GuildMessages,GatewayIntentBits.GuildMembers,GatewayIntentBits.GuildIntegrations]})
 
 // Конфигурация вашего Discord бота
-const botToken = 'MTA5OTEwMDUzNzk4MDQ1Mjk0NQ.Go7jPE.w3qs2qqUAToKxroFlhbl69y2XTZEVK7MuT8Pjs';
-const serverId = '761607102254678026';
-const channelId = '1111023534030995557';
+const botToken = 'MTA3NTc5MzY5NTkyMTY3NjMzMA.Gz9h2J.JsN7WjyRQ8e1xXv94ZbHGalJMNhRDG9wIjbc_0';
+const serverId = '1064209711068610630';
+const channelId = '1109499754712412182';
 
 const app = express();
 
 app.use("/assets", express.static("assets"));
 app.set("view engine", "ejs");
-
-
-
-
-
-
-
-// Маршрут для отображения страницы уведомлений
-app.get('/notifications', async (req, res) => {
-  try {
-    // Получение коллекции сообщений с сервера Discord
-    const guild = client.guilds.cache.get(serverId);
-    const channel = guild.channels.cache.get(channelId);
-    const messages = await channel.messages.fetch();
-
-    // Преобразование коллекции сообщений в массив
-// Преобразование коллекции сообщений в массив и изменение порядка
-const messagesArray = Array.from(messages.values()).reverse();
-
-
-    // Отображение страницы с уведомлениями
-    res.render('notifications', { messages: messagesArray });
-  } catch (error) {
-    console.error('Ошибка при получении сообщений:', error);
-    res.status(500).send('Ошибка при получении сообщений');
-  }
-});
-
-
-
-
-
-
-
-
-
 
 // Добавляем настройки сессии
 app.use(
@@ -274,9 +238,25 @@ app.get("/logout", (request, response) => {
   });
 });
 
-// Добавьте обработчики для остальных маршрутов
-app.get("/notifications", isAuthenticated, (request, response) => {
-  response.render("notifications");
+// Маршрут для отображения страницы уведомлений
+app.get('/notifications', isAuthenticated, async (req, res) => {
+  try {
+    // Получение коллекции сообщений с сервера Discord
+    const guild = client.guilds.cache.get(serverId);
+    const channel = guild.channels.cache.get(channelId);
+    const messages = await channel.messages.fetch();
+
+    // Преобразование коллекции сообщений в массив
+// Преобразование коллекции сообщений в массив и изменение порядка
+const messagesArray = Array.from(messages.values()).reverse();
+
+
+    // Отображение страницы с уведомлениями
+    res.render('notifications', { messages: messagesArray });
+  } catch (error) {
+    console.error('Ошибка при получении сообщений:', error);
+    res.status(500).send('Ошибка при получении сообщений');
+  }
 });
 
 app.get("/transation", isAuthenticated, (request, response) => {
