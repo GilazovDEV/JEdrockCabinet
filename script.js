@@ -327,8 +327,13 @@ app.get("/notifications", isAuthenticated, async (req, res) => {
     const guild = client.guilds.cache.get(serverId);
     const channel = guild.channels.cache.get(channelId);
     const messages = await channel.messages.fetch();
-    const messagesArray = Array.from(messages.values()).reverse();
-    res.render("notifications", { messages: messagesArray });
+    // Фильтрация исходных постов без ответов
+    const originalPosts = messages.filter((message) => !message.reference);
+
+    // Преобразование коллекции исходных постов в массив
+    const originalPostsArray = Array.from(originalPosts.values()).reverse();
+    // const messagesArray = Array.from(messages.values()).reverse();
+    res.render("notifications", { messages: originalPostsArray });
   } catch (error) {
     console.error("Ошибка при получении сообщений:", error);
     res.status(500).send("Ошибка при получении сообщений");
