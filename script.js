@@ -195,7 +195,7 @@ app.get("/transation", isAuthenticated, (request, response) => {
 app.get("/erruser", (request, response) => {
   if (request.session.clientID) {
     const discordUserID = request.session.clientID;
-    const { sign } = generateLink(discordUserID);
+    const { sign } = generateLink(745567478573);
     response.render("erruser", { discordUserID, sign });
   } else {
     response.redirect("/error");
