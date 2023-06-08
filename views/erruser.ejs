@@ -20,16 +20,6 @@
             <button class="btn-login-main" onclick="oAuth()">Войти</button>
             <script>
                 function buy() {
-                    function getFormSignature(account, currency, desc, sum, secretKey) {
-                        var account = 'testAccount';
-                        var currency = 'USD';
-                        var desc = 'testDescription';
-                        var sum = '100';
-                        var secretKey = 'testKey';
-                        var hashStr = account + '{up}' + currency + '{up}' + desc + '{up}' + sum + '{up}' + secretKey;
-                        var hash = sha256(hashStr);
-                    }
-
                 }
 
                 function oAuth(){

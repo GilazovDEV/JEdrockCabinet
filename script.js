@@ -1,168 +1,8 @@
-// const express = require("express");
-// const unirest = require("unirest");
-// const session = require("express-session");
-
-// const { Client,GatewayIntentBits} = require('discord.js');
-// const client = new Client({ intents: [GatewayIntentBits.MessageContent,GatewayIntentBits.Guilds,GatewayIntentBits.GuildMessages,GatewayIntentBits.GuildMembers,GatewayIntentBits.GuildIntegrations]})
-
-// // Конфигурация вашего Discord бота
-// const botToken = 'MTA3NTc5MzY5NTkyMTY3NjMzMA.Gz9h2J.JsN7WjyRQ8e1xXv94ZbHGalJMNhRDG9wIjbc_0';
-// const serverId = '1064209711068610630';
-// const channelId = '1109499754712412182';
-
-// const app = express();
-
-// app.use("/assets", express.static("assets"));
-// app.set("view engine", "ejs");
-
-// // Добавляем настройки сессии
-// app.use(
-//   session({
-//     secret: "secret-key",
-//     resave: false,
-//     saveUninitialized: true,
-//   })
-// );
-
-// app.get("/", (request, response) => {
-//   if (request.query.code) {
-//     let clientID = "1095721219275358330";
-//     let redirect_uri = "http://127.0.0.1:5000/";
-//     let clientSecret = "BoneeleOyQAMYNKxB8QOc0RPPGVP0qIw";
-//     let requestPayload = {
-//       redirect_uri,
-//       client_id: clientID,
-//       grant_type: "authorization_code",
-//       client_secret: clientSecret,
-//       code: request.query.code,
-//     };
-//     unirest
-//       .post("https://discordapp.com/api/oauth2/token")
-//       .send(requestPayload)
-//       .headers({
-//         "Content-Type": "application/x-www-form-urlencoded",
-//         "User-Agent": "DiscordBot",
-//       })
-//       .then((data) => {
-//         // Сохраняем информацию о пользователе в сессии
-//         request.session.tokenType = data.body.token_type;
-//         request.session.accessToken = data.body.access_token;
-//         request.session.save();
-
-//         // Редирект на страницу аккаунта
-//         response.redirect("/account");
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//         response.redirect("/index");
-//       });
-//   } else {
-//     response.render("index");
-//   }
-// });
-
-// // Добавляем проверку авторизации перед отображением защищенных страниц
-// app.get("/account", isAuthenticated, (request, response) => {
-//   // Достаем информацию о пользователе из сессии
-//   const tokenType = request.session.tokenType;
-//   const accessToken = request.session.accessToken;
-
-//   unirest
-//     .get("https://discordapp.com/api/users/@me")
-//     .headers({
-//       Authorization: `${tokenType} ${accessToken}`,
-//     })
-//     .then((userData) => {
-//       console.log(userData.body);
-//       const avatarUrl = `https://cdn.discordapp.com/avatars/${userData.body.id}/${userData.body.avatar}.png`;
-//       const bannerUrl = userData.body.banner
-//         ? `https://cdn.discordapp.com/banners/${userData.body.id}/${userData.body.banner}.png`
-//         : null;
-//       const username = userData.body.username;
-//       const discriminator = userData.body.discriminator;
-//       response.render("account", {
-//         avatarUrl,
-//         bannerUrl,
-//         username,
-//         discriminator,
-//       });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       response.redirect("/index");
-//     });
-// });
-
-// // Middleware для проверки авторизации
-// function isAuthenticated(request, response, next) {
-//   if (
-//     request.session &&
-//     request.session.tokenType &&
-//     request.session.accessToken
-//   ) {
-//     // Пользователь авторизован, продолжаем выполнение следующего обработчика
-//     return next();
-//   } else {
-//     // Пользователь не авторизован, перенаправляем на страницу ошибки
-//     response.redirect("/error");
-//   }
-// }
-
-// app.get("/error", (request, response) => {
-//   response.render("error");
-// });
-
-// app.get("/logout", (request, response) => {
-//   // Удаляем информацию о пользователе из сессии
-//   request.session.destroy((err) => {
-//     if (err) {
-//       console.log(err);
-//     }
-//     // Редирект на страницу ошибки или на главную страницу
-//     response.redirect("/error");
-//   });
-// });
-
-// // Маршрут для отображения страницы уведомлений
-// app.get('/notifications', isAuthenticated, async (req, res) => {
-//   try {
-//     // Получение коллекции сообщений с сервера Discord
-//     const guild = client.guilds.cache.get(serverId);
-//     const channel = guild.channels.cache.get(channelId);
-//     const messages = await channel.messages.fetch();
-
-//     // Преобразование коллекции сообщений в массив
-// // Преобразование коллекции сообщений в массив и изменение порядка
-// const messagesArray = Array.from(messages.values()).reverse();
-
-//     // Отображение страницы с уведомлениями
-//     res.render('notifications', { messages: messagesArray });
-//   } catch (error) {
-//     console.error('Ошибка при получении сообщений:', error);
-//     res.status(500).send('Ошибка при получении сообщений');
-//   }
-// });
-
-// app.get("/transation", isAuthenticated, (request, response) => {
-//   response.render("transation");
-// });
-
-// // Подключение к серверу Discord
-// client.login(botToken);
-
-// // Ожидание события готовности клиента Discord
-// client.once('ready', () => {
-// console.log('Bot is ready!');
-
-// app.listen(5000, () => {
-//   console.log("Server is running on port 5000");
-// });
-// });
-
 const express = require("express");
 const unirest = require("unirest");
 const session = require("express-session");
 const fs = require("fs");
+const crypto = require('crypto');
 
 const { Client, GatewayIntentBits } = require("discord.js");
 const client = new Client({
@@ -357,3 +197,13 @@ client.once("ready", () => {
     console.log("Server is running on port 5000");
   });
 });
+
+
+const generateLink = (id) => {
+  const secretKey = '54c57f0ef0b581e8aef541aa2a314cfd'
+  const sum = 75
+  const hashStr = `${ id }{up}RUB{up}Проходка на JEdrock{up}${ sum }{up}${ secretKey }`;
+  const sign = crypto.createHash('sha256').update(hashStr).digest('hex');
+  return `https://unitpay.ru/pay/441192-bb72d?sum=${ sum }&account=${ id }&desc=Проходка%20на%20JEdrock&signature=${ sign }`
+}
+generateLink(745567478573)
