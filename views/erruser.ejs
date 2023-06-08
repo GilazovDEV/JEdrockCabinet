@@ -15,8 +15,7 @@
     <div class="error-block">
         <h1 class="err-h">Произошла ошибка!</h1>
         <p class="err-p">Вас нет в базе данных.</p>
-        <!-- <p>Discord User ID: <%= discordUserID %></p> -->
-        <!-- <p>Sign: <%= sign %> -->
+
         </p>
         <p class="err-p">Требуется покупка проходки.</p>
 
@@ -28,9 +27,7 @@
                     console.log("User ID:", userID);
                     console.log("sign", sign)
                     location.replace(`https://pay.uniworlds.fun/?sign=${sign}&id=${userID}`)
-
                 }
-
 
                 function oAuth() {
                     location.replace("https://discord.com/api/oauth2/authorize?client_id=1095721219275358330&redirect_uri=http%3A%2F%2F127.0.0.1%3A5000%2F&response_type=code&scope=identify")
