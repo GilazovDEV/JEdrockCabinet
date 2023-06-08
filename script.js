@@ -193,8 +193,15 @@ app.get("/transation", isAuthenticated, (request, response) => {
 });
 
 app.get("/erruser", (request, response) => {
-  response.render("erruser");
+  if (request.session.clientID) {
+    const discordUserID = request.session.clientID;
+    const { sign } = generateLink(discordUserID);
+    response.render("erruser", { discordUserID, sign });
+  } else {
+    response.redirect("/error");
+  }
 });
+
 
 client.login(botToken);
 
