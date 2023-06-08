@@ -4,6 +4,15 @@ const session = require("express-session");
 const fs = require("fs");
 const crypto = require('crypto');
 
+const generateLink = (id) => {
+  const secretKey = '54c57f0ef0b581e8aef541aa2a314cfd'
+  const sum = 75
+  const hashStr = `${id}{up}Проходка JEdrock{up}${sum}{up}${secretKey}`;
+  const sign = crypto.createHash('sha256').update(hashStr).digest('hex');
+  return { sign }
+}
+console.log(generateLink(745567478573))
+
 const { Client, GatewayIntentBits } = require("discord.js");
 const client = new Client({
   intents: [
@@ -15,8 +24,7 @@ const client = new Client({
   ],
 });
 
-const botToken =
-  "MTA3NTc5MzY5NTkyMTY3NjMzMA.Gz9h2J.JsN7WjyRQ8e1xXv94ZbHGalJMNhRDG9wIjbc_0";
+const botToken = "MTA3NTc5MzY5NTkyMTY3NjMzMA.Gz9h2J.JsN7WjyRQ8e1xXv94ZbHGalJMNhRDG9wIjbc_0";
 const serverId = "1064209711068610630";
 const channelId = "1109499754712412182";
 
@@ -197,13 +205,3 @@ client.once("ready", () => {
     console.log("Server is running on port 5000");
   });
 });
-
-
-const generateLink = (id) => {
-  const secretKey = '54c57f0ef0b581e8aef541aa2a314cfd'
-  const sum = 75
-  const hashStr = `${ id }{up}RUB{up}Проходка на JEdrock{up}${ sum }{up}${ secretKey }`;
-  const sign = crypto.createHash('sha256').update(hashStr).digest('hex');
-  return `https://unitpay.ru/pay/441192-bb72d?sum=${ sum }&account=${ id }&desc=Проходка%20на%20JEdrock&signature=${ sign }`
-}
-generateLink(745567478573)
