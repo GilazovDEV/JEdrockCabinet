@@ -580,6 +580,19 @@ footer {
   transition: all 0.3s;
 }
 
+.err-h {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+}
+
+.err-p {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+}
+
 
 /* ADAPTATION */
 
