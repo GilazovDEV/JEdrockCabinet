@@ -77,10 +77,10 @@ function checkUser(username, clientID) {
   if (clientID in database) {
     const user = database[clientID];
     if (user.paid === true) {
-      return true;
+      return user;
     }
   }
-  return false;
+  return null;
 }
 
 
@@ -146,18 +146,29 @@ app.get("/account", isAuthenticated, (request, response) => {
       Authorization: tokenType + " " + accessToken,
     })
     .then((userData) => {
-      console.log(userData.body);
       const avatarUrl = `https://cdn.discordapp.com/avatars/${userData.body.id}/${userData.body.avatar}.png`;
       const bannerUrl = userData.body.banner
         ? `https://cdn.discordapp.com/banners/${userData.body.id}/${userData.body.banner}.png`
         : null;
       const username = userData.body.username;
       const discriminator = userData.body.discriminator;
+
+      // Получение данных пользователя из базы данных
+      const user = checkUser(username, request.session.clientID);
+      const nickname = user ? user.nickname : "Unknown";
+      const phone = user ? user.phone : "Unknown";
+      const email = user ? user.email : "Unknown";
+      const id = user ? user.id : "Unknown";
+
       response.render("account", {
         avatarUrl,
         bannerUrl,
         username,
         discriminator,
+        nickname,
+        phone, // Передача номера телефона на страницу
+        email, // Передача электронной почты на страницу
+        id, // Передача идентификатора пользователя на страницу
       });
     })
     .catch((err) => {
