@@ -2,16 +2,16 @@ const express = require("express");
 const unirest = require("unirest");
 const session = require("express-session");
 const fs = require("fs");
-const crypto = require('crypto');
+const crypto = require("crypto");
 
 const generateLink = (id) => {
-  const secretKey = '54c57f0ef0b581e8aef541aa2a314cfd'
-  const sum = 75
+  const secretKey = "54c57f0ef0b581e8aef541aa2a314cfd";
+  const sum = 75;
   const hashStr = `${id}{up}Проходка JEdrock{up}${sum}{up}${secretKey}`;
-  const sign = crypto.createHash('sha256').update(hashStr).digest('hex');
-  return { sign }
-}
-console.log(generateLink(745567478573))
+  const sign = crypto.createHash("sha256").update(hashStr).digest("hex");
+  return { sign };
+};
+console.log(generateLink(745567478573));
 
 const { Client, GatewayIntentBits } = require("discord.js");
 const client = new Client({
@@ -24,7 +24,8 @@ const client = new Client({
   ],
 });
 
-const botToken = "MTA3NTc5MzY5NTkyMTY3NjMzMA.Gz9h2J.JsN7WjyRQ8e1xXv94ZbHGalJMNhRDG9wIjbc_0";
+const botToken =
+  "MTA3NTc5MzY5NTkyMTY3NjMzMA.Gz9h2J.JsN7WjyRQ8e1xXv94ZbHGalJMNhRDG9wIjbc_0";
 const serverId = "1064209711068610630";
 const channelId = "1109499754712412182";
 
@@ -202,6 +203,13 @@ app.get("/erruser", (request, response) => {
   }
 });
 
+app.get("/oferta", (request, response) => {
+  response.render("oferta");
+});
+
+app.get("/politconf", (request, response) => {
+  response.render("politconf");
+});
 
 client.login(botToken);
 
