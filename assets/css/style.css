@@ -671,6 +671,118 @@ footer {
 }
 
 
+
+/* страничка оферты */
+
+.oferta-block {
+  margin-top: 70px;
+  color: #fff;
+}
+
+.oferta-title {
+}
+
+.oferta-title h1 {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+}
+
+.oferta-title p {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.oferta {
+}
+
+.oferta-paragraph {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.of-ph {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+}
+
+.of-txt {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.main-btn {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.btn-main {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+  background: linear-gradient(44.11deg, #cd10ff 15.75%, #9f06ff 84.63%);
+  border-radius: 10px;
+  border: 1px solid #cd10ff;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+/* конец кода оферты */
+
+/* страничка политики конф */
+.konf-title {
+  margin-top: 70px;
+}
+
+.konf-title h1 {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  color: #fff;
+}
+
+.konf-title p {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+}
+
+.conf {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.conf-tit {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  color: #fff;
+}
+
+.conf-txt {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* конец кода полит конф */
+
+
 /* ADAPTATION */
 
 @media (max-width: 1400px) {
@@ -784,122 +896,3 @@ footer {
     width: 180px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-/* страничка оферты */
-
-.oferta-block {
-  margin-top: 70px;
-  color: #fff;
-}
-
-.oferta-title {
-}
-
-.oferta-title h1 {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
-}
-
-.oferta-title p {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-}
-
-.oferta {
-}
-
-.oferta-paragraph {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.of-ph {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
-}
-
-.of-txt {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-}
-
-.main-btn {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.btn-main {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  color: #ffffff;
-  background: linear-gradient(44.11deg, #cd10ff 15.75%, #9f06ff 84.63%);
-  border-radius: 10px;
-  border: 1px solid #cd10ff;
-  padding: 10px 20px;
-  text-decoration: none;
-}
-
-/* конец кода оферты */
-
-/* страничка политики конф */
-.konf-title {
-  margin-top: 70px;
-}
-
-.konf-title h1 {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
-  color: #fff;
-}
-
-.konf-title p {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  color: #fff;
-}
-
-.conf {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.conf-tit {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
-  color: #fff;
-}
-
-.conf-txt {
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  color: #fff;
-}
-
-/* конец кода полит конф */
