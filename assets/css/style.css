@@ -336,6 +336,10 @@ footer {
   margin: 0px;
 }
 
+.nav-menu-block {
+  display: none;
+}
+
 /* .client-backgr {
   margin-top: 16px;
   margin-bottom: 32px;
@@ -821,6 +825,30 @@ footer {
   .q {
     float: none;
     margin-top: 20px;
+  }
+
+  .acc-nav-col {
+    display: none;
+  }
+
+  .nav-menu-block {
+    display: block;
+  }
+
+  .li-acc {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 8px 15px;
+    transition: all 0.3s;
+  }
+  
+  .a-acc {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
   }
 
 }
