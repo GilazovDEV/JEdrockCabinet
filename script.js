@@ -158,6 +158,10 @@ app.get("/account", isAuthenticated, (request, response) => {
     });
 });
 
+app.get("/index", (request, response) => {
+  response.render("index");
+});
+
 app.get("/error", (request, response) => {
   response.render("error");
 });
