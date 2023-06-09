@@ -73,7 +73,7 @@ function isAuthenticated(request, response, next) {
 
 // Функция для проверки наличия пользователя в базе данных
 function checkUser(username, clientID) {
-  const database = require("./database.json");
+  const database = require("./db.json");
   if (clientID in database) {
     const user = database[clientID];
     if (user.paid === true) {
