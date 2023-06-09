@@ -629,7 +629,8 @@ footer {
 /* ERROR PAGE */
 
 .error-block {
-  margin-top: 100px;
+  margin-top: 150px;
+  margin-bottom: 150px;
   text-align: center;
 }
 
