@@ -42,7 +42,7 @@ app.use(
   })
 );
 
-// Middleware для проверки авторизации
+// // Middleware для проверки авторизации
 function isAuthenticated(request, response, next) {
   if (
     request.session &&
@@ -55,13 +55,14 @@ function isAuthenticated(request, response, next) {
     const username = request.session.username;
     const clientID = request.session.clientID;
 
-    // Проверяем наличие пользователя в базе данных
-    const userExists = checkUser(username, clientID);
+    // Проверяем наличие пользователя в базе данных и его статус "paid"
+    const userExistsAndPaid = checkUser(username, clientID);
 
-    if (userExists) {
+    if (userExistsAndPaid) {
       return next();
     } else {
-      // Пользователь не найден в базе данных, перенаправляем на страницу ошибки
+      // Пользователь не найден в базе данных или его статус "paid" равен false,
+      // перенаправляем на страницу ошибки
       response.redirect("/erruser");
     }
   } else {
@@ -73,8 +74,15 @@ function isAuthenticated(request, response, next) {
 // Функция для проверки наличия пользователя в базе данных
 function checkUser(username, clientID) {
   const database = require("./database.json");
-  return database[clientID] === username;
+  if (clientID in database) {
+    const user = database[clientID];
+    if (user.paid === true) {
+      return true;
+    }
+  }
+  return false;
 }
+
 
 app.get("/", (request, response) => {
   if (request.query.code) {
