@@ -857,6 +857,10 @@ footer {
     text-decoration: none;
   }
 
+  .acc-acc {
+    margin: 0px;
+  }
+
 }
 
 @media (max-width: 520px) {
