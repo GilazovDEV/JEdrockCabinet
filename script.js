@@ -257,7 +257,7 @@ client.login(botToken);
 client.once("ready", () => {
   console.log("Bot is ready!");
 
-  app.listen(5000, () => {
-    console.log("Server is running on port 5000");
+  https.createServer(options, app).listen(443, () => {
+    console.log(`Сервер запущен на порту ${443} https://pay.uniworlds.fun`);
   });
 });
