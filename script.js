@@ -92,7 +92,7 @@ function checkUser(username, clientID) {
 app.get("/", (request, response) => {
   if (request.query.code) {
     let clientID = "1095721219275358330";
-    let redirect_uri = "http://127.0.0.1:5000/";
+    let redirect_uri = "https://pay.uniworlds.fun/";
     let clientSecret = "BoneeleOyQAMYNKxB8QOc0RPPGVP0qIw";
     let requestPayload = {
       redirect_uri,
