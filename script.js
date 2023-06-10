@@ -3,6 +3,7 @@ const unirest = require("unirest");
 const session = require("express-session");
 const fs = require("fs");
 const crypto = require("crypto");
+const https = require("https");
 
 const generateLink = (id) => {
   const secretKey = "54c57f0ef0b581e8aef541aa2a314cfd";
@@ -10,6 +11,10 @@ const generateLink = (id) => {
   const hashStr = `${id}{up}Проходка JEdrock{up}${sum}{up}${secretKey}`;
   const sign = crypto.createHash("sha256").update(hashStr).digest("hex");
   return { sign };
+};
+const options = {
+  key: fs.readFileSync('./cert/privkey1.pem'),
+  cert: fs.readFileSync('./cert/fullchain1.pem')
 };
 console.log(generateLink(745567478573));
 
@@ -87,7 +92,7 @@ function checkUser(username, clientID) {
 app.get("/", (request, response) => {
   if (request.query.code) {
     let clientID = "1095721219275358330";
-    let redirect_uri = "http://127.0.0.1:5000/";
+    let redirect_uri = "https://pay.uniworlds.fun/";
     let clientSecret = "BoneeleOyQAMYNKxB8QOc0RPPGVP0qIw";
     let requestPayload = {
       redirect_uri,
@@ -252,7 +257,7 @@ client.login(botToken);
 client.once("ready", () => {
   console.log("Bot is ready!");
 
-  app.listen(5000, () => {
-    console.log("Server is running on port 5000");
+  https.createServer(options, app).listen(443, () => {
+    console.log(`Сервер запущен на порту ${443} https://pay.uniworlds.fun`);
   });
 });
