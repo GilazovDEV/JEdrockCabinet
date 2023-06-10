@@ -3,6 +3,7 @@ const unirest = require("unirest");
 const session = require("express-session");
 const fs = require("fs");
 const crypto = require("crypto");
+const https = require("https");
 
 const generateLink = (id) => {
   const secretKey = "54c57f0ef0b581e8aef541aa2a314cfd";
@@ -10,6 +11,10 @@ const generateLink = (id) => {
   const hashStr = `${id}{up}Проходка JEdrock{up}${sum}{up}${secretKey}`;
   const sign = crypto.createHash("sha256").update(hashStr).digest("hex");
   return { sign };
+};
+const options = {
+  key: fs.readFileSync('./cert/privkey1.pem'),
+  cert: fs.readFileSync('./cert/fullchain1.pem')
 };
 console.log(generateLink(745567478573));
 
