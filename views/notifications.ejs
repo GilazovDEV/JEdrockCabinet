@@ -108,7 +108,10 @@
                                   } else {
                                     return match;
                                   }
-                                }); %>
+                                })
+                                .replace(/<:(.*?):(\d+)>/g, (match, emojiName, emojiId) => {
+                                    return `<img src="https://cdn.discordapp.com/emojis/${emojiId}.png" alt="${emojiName}" class="emoji" width="20px" />`;
+                                  }); %>
 
                                         <% const messageDate=message.createdAt.getDate(); %>
                                             <% const messageMonth=message.createdAt.getMonth() + 1; %>

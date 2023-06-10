@@ -210,17 +210,20 @@ app.get("/notifications", isAuthenticated, async (req, res) => {
     // Получение информации о каналах
     const channels = Array.from(guild.channels.cache.values());
 
+    // Получение информации об эмодзи
+    const emojis = Array.from(guild.emojis.cache.values());
+
     res.render("notifications", {
       messages: originalPostsArray,
       roles: roles,
-      channels: channels
+      channels: channels,
+      emojis: emojis
     });
   } catch (error) {
     console.error("Ошибка при получении сообщений:", error);
     res.status(500).send("Ошибка при получении сообщений");
   }
 });
-
 
 app.get("/transation", isAuthenticated, (request, response) => {
   response.render("transation");
