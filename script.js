@@ -4,6 +4,8 @@ const session = require("express-session");
 const fs = require("fs");
 const crypto = require("crypto");
 
+const https = require('https');
+
 const generateLink = (id) => {
   const secretKey = "54c57f0ef0b581e8aef541aa2a314cfd";
   const sum = 75;
@@ -32,7 +34,15 @@ const channelId = "1109499754712412182";
 const app = express();
 
 app.use("/assets", express.static("assets"));
-app.set("view engine", "ejs");
+
+app.set('views', './public_je');
+
+app.set('view engine', 'ejs');
+
+app.use(express.static('public_uw'));
+app.use('/jedrock', express.static('public_je'));
+app.use('/pay', express.static('public_pay_je'));
+
 
 app.use(
   session({
@@ -41,6 +51,11 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+const options = {
+  key: fs.readFileSync('./cert/privkey1.pem'),
+  cert: fs.readFileSync('./cert/fullchain1.pem')
+};
 
 // // Middleware для проверки авторизации
 function isAuthenticated(request, response, next) {
@@ -197,7 +212,7 @@ app.get("/logout", (request, response) => {
 app.get("/notifications", isAuthenticated, async (req, res) => {
   try {
     const guild = client.guilds.cache.get(serverId);
-    const channel = guild.channels.cache.get(channelId);
+    const channel = guild.channels.cache.get(channelId);ф
     const messages = await channel.messages.fetch();
     // Фильтрация исходных постов без ответов
     const originalPosts = messages.filter((message) => !message.reference);
@@ -239,7 +254,7 @@ client.login(botToken);
 client.once("ready", () => {
   console.log("Bot is ready!");
 
-  app.listen(5000, () => {
-    console.log("Server is running on port 5000");
+  https.createServer(options, app).listen(443, () => {
+    console.log(`Сервер запущен на порту ${443} https://pay.uniworlds.fun`);
   });
 });
