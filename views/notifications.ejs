@@ -89,7 +89,27 @@
                             </div>
                             <% for (let i=messages.length - 1; i>= 0; i--) { %>
                                 <% const message=messages[i]; %>
-                                    <% const cleanedContent=message.content.replace(/<@&\d+>/g, ''); %>
+
+                                <% const formattedContent = message.content
+                                .replace(/\*(.*?)\*/g, '<b>$1</b>')
+                                .replace(/_(.*?)_/g, '<i>$1</i>')
+                                .replace(/<@&(\d+)>/g, (match, roleId) => {
+                                  const role = roles.find((r) => r.id === roleId);
+                                  if (role) {
+                                    return `<span class="role-mention">@${role.name}</span>`;
+                                  } else {
+                                    return match;
+                                  }
+                                })
+                                .replace(/<#(\d+)>/g, (match, channelId) => {
+                                  const channel = channels.find((c) => c.id === channelId);
+                                  if (channel) {
+                                    return `<span class="channel-mention">"#${channel.name}"</span>`;
+                                  } else {
+                                    return match;
+                                  }
+                                }); %>
+
                                         <% const messageDate=message.createdAt.getDate(); %>
                                             <% const messageMonth=message.createdAt.getMonth() + 1; %>
                                                 <% const
@@ -102,7 +122,8 @@
                                                         </div>
                                                         <div class="notif-text">
                                                             <p class="n-txt">
-                                                                <%= message.author.username %>: <%= cleanedContent %>
+                                                                <%= message.author.username %>: <%- formattedContent %>
+
                                                                         <% if (message.attachments.size> 0) { %>
                                                                             <% const
                                                                                 attachment=message.attachments.first();
