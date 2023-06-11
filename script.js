@@ -127,11 +127,11 @@ app.get("/", (request, response) => {
               response.redirect("/account");
             });
           })
-      //     .catch((err) => {
-      //       console.log(err);
-      //       response.redirect("/index");
-      //     });
-      // })
+          .catch((err) => {
+            console.log(err);
+            response.redirect("/index");
+          });
+      })
       .catch((err) => {
         console.log(err);
         response.redirect("/index");
