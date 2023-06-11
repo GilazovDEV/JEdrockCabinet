@@ -131,7 +131,7 @@ app.get("/", (request, response) => {
       //       console.log(err);
       //       response.redirect("/index");
       //     });
-      // })
+      })
       .catch((err) => {
         console.log(err);
         response.redirect("/index");
