@@ -164,6 +164,7 @@ app.get("/account", isAuthenticated, (request, response) => {
       const phone = user ? user.phone : "Unknown";
       const email = user ? user.email : "Unknown";
       const id = user ? user.id : "Unknown";
+      const tokens = user ? user.tokens : "Unknown";
 
       response.render("account", {
         avatarUrl,
@@ -173,8 +174,8 @@ app.get("/account", isAuthenticated, (request, response) => {
         nickname,
         phone, // Передача номера телефона на страницу
         email, // Передача электронной почты на страницу
-        tokens, //Передача баланса игрока
         id, // Передача идентификатора пользователя на страницу
+        tokens, //Передача баланса игрока
       });
     })
     .catch((err) => {
