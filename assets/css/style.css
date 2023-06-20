@@ -312,7 +312,7 @@ footer {
 
 .txt {
   padding-top: 100px;
-    font-family: "Montserrat";
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -370,12 +370,13 @@ footer {
 
 .cl-txt {
   font-family: "Montserrat";
-
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.6);
   margin: 0px;
+  padding: 0px;
+
 }
 
 .cl-nick {
@@ -385,6 +386,22 @@ footer {
   font-size: 24px;
   color: #ffffff;
   margin: 0px;
+  padding: 0px;
+}
+
+.cl-tokens {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0px;
+  padding: 0px;
+}
+
+.tokens {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
 }
 
 .cl-image {
@@ -491,7 +508,6 @@ footer {
   width: 0px;
   background-color: none;
 }
-
 
 .notification__border {
   padding: 16px;
@@ -681,8 +697,6 @@ footer {
   font-size: 18px;
 }
 
-
-
 /* страничка оферты */
 
 .oferta-block {
@@ -793,7 +807,6 @@ footer {
 
 /* конец кода полит конф */
 
-
 /* ADAPTATION */
 
 @media (max-width: 1400px) {
@@ -819,7 +832,6 @@ footer {
   .btn-login {
     margin: 0px;
   }
-
 }
 
 @media (max-width: 769px) {
@@ -847,7 +859,7 @@ footer {
     padding: 8px 15px;
     transition: all 0.3s;
   }
-  
+
   .a-acc {
     font-family: "Montserrat";
     font-style: normal;
@@ -860,7 +872,6 @@ footer {
   .acc-acc {
     margin: 0px;
   }
-
 }
 
 @media (max-width: 520px) {
@@ -910,8 +921,6 @@ footer {
   .notif-img {
     width: 200px;
   }
-
-
 }
 
 @media (max-width: 352px) {
