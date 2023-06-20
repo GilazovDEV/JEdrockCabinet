@@ -34,6 +34,20 @@
 </head>
 
 <body>
+
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            var preloader = document.getElementById('preloader');
+            var content = document.querySelector('.content');
+            preloader.style.display = 'none';
+            content.style.display = 'block';
+        });
+    </script>
+
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="account.html"><img src="/assets/img/logo.png" width="80px" alt=""></a>
@@ -116,7 +130,9 @@
                                             <p class="cl-nick">
                                                 <%= nickname %>
                                             </p>
-                                            <span class="tokens">Токены: <span class="cl-tokens"><%= tokens %> &#128160;</span></span>
+                                            <span class="tokens">Токены: <span class="cl-tokens">
+                                                    <%= tokens %> &#128160;
+                                                </span></span>
                                         </div>
                                     </div>
 
@@ -131,8 +147,12 @@
                                         </div>
 
                                         <div class="details-info">
-                                            <p class="d-txt"><span class="nick">Ник — </span><span class="change"><%= nickname %></span></p>
-                                            <p class="d-txt"><span class="email">Почта — </span><span class="change"><%= email %></span></p>
+                                            <p class="d-txt"><span class="nick">Ник — </span><span class="change">
+                                                    <%= nickname %>
+                                                </span></p>
+                                            <p class="d-txt"><span class="email">Почта — </span><span class="change">
+                                                    <%= email %>
+                                                </span></p>
                                             <p class="d-txt"></p>
                                         </div>
                                     </div>

@@ -18,6 +18,20 @@
 </head>
 
 <body>
+
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            var preloader = document.getElementById('preloader');
+            var content = document.querySelector('.content');
+            preloader.style.display = 'none';
+            content.style.display = 'block';
+        });
+    </script>
+
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="account.html"><img src="/assets/img/logo.png" width="80px" alt=""></a>
@@ -93,64 +107,65 @@
                             <% for (let i=messages.length - 1; i>= 0; i--) { %>
                                 <% const message=messages[i]; %>
 
-                                <% const formattedContent = message.content
-                                .replace(/\*(.*?)\*/g, '<b>$1</b>')
-                                .replace(/_(.*?)_/g, '<i>$1</i>')
-                                .replace(/<@&(\d+)>/g, (match, roleId) => {
-                                  const role = roles.find((r) => r.id === roleId);
-                                  if (role) {
-                                    return `<span class="role-mention">@${role.name}</span>`;
-                                  } else {
-                                    return match;
-                                  }
-                                })
-                                .replace(/<#(\d+)>/g, (match, channelId) => {
-                                  const channel = channels.find((c) => c.id === channelId);
-                                  if (channel) {
-                                    return `<span class="channel-mention">"#${channel.name}"</span>`;
-                                  } else {
-                                    return match;
-                                  }
-                                })
-                                .replace(/<:(.*?):(\d+)>/g, (match, emojiName, emojiId) => {
-                                    return `<img src="https://cdn.discordapp.com/emojis/${emojiId}.png" alt="${emojiName}" class="emoji" width="20px" />`;
-                                  }); %>
+                                    <% const formattedContent=message.content .replace(/\*(.*?)\*/g, '<b>$1</b>' )
+                                        .replace(/_(.*?)_/g, '<i>$1</i>' ) .replace(/<@&(\d+)>/g, (match, roleId) => {
+                                        const role = roles.find((r) => r.id === roleId);
+                                        if (role) {
+                                        return `<span class="role-mention">@${role.name}</span>`;
+                                        } else {
+                                        return match;
+                                        }
+                                        })
+                                        .replace(/<#(\d+)>/g, (match, channelId) => {
+                                            const channel = channels.find((c) => c.id === channelId);
+                                            if (channel) {
+                                            return `<span class="channel-mention">"#${channel.name}"</span>`;
+                                            } else {
+                                            return match;
+                                            }
+                                            })
+                                            .replace(/<:(.*?):(\d+)>/g, (match, emojiName, emojiId) => {
+                                                return `<img src="https://cdn.discordapp.com/emojis/${emojiId}.png"
+                                                    alt="${emojiName}" class="emoji" width="20px" />`;
+                                                }); %>
 
-                                        <% const messageDate=message.createdAt.getDate(); %>
-                                            <% const messageMonth=message.createdAt.getMonth() + 1; %>
-                                                <% const
-                                                    messageYear=message.createdAt.getFullYear().toString().slice(-2); %>
-                                                    <div class="notification__border">
-                                                        <div class="notif-title">
-                                                            <p class="n-tit">
-                                                                <%= message.channel.name %>
-                                                            </p>
-                                                        </div>
-                                                        <div class="notif-text">
-                                                            <p class="n-txt">
-                                                                <%= message.author.username %>: <%- formattedContent %>
+                                                <% const messageDate=message.createdAt.getDate(); %>
+                                                    <% const messageMonth=message.createdAt.getMonth() + 1; %>
+                                                        <% const
+                                                            messageYear=message.createdAt.getFullYear().toString().slice(-2);
+                                                            %>
+                                                            <div class="notification__border">
+                                                                <div class="notif-title">
+                                                                    <p class="n-tit">
+                                                                        <%= message.channel.name %>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="notif-text">
+                                                                    <p class="n-txt">
+                                                                        <%= message.author.username %>: <%-
+                                                                                formattedContent %>
 
-                                                                        <% if (message.attachments.size> 0) { %>
-                                                                            <% const
-                                                                                attachment=message.attachments.first();
-                                                                                %>
-                                                                                <% if (attachment && attachment.url) {
-                                                                                    %>
-                                                                                    <img src="<%= attachment.url %>"
-                                                                                        class="notif-img">
-                                                                                    <% } %>
-                                                                                        <% } %>
-                                                            </p>
-                                                        </div>
+                                                                                <% if (message.attachments.size> 0) { %>
+                                                                                    <% const
+                                                                                        attachment=message.attachments.first();
+                                                                                        %>
+                                                                                        <% if (attachment &&
+                                                                                            attachment.url) { %>
+                                                                                            <img src="<%= attachment.url %>"
+                                                                                                class="notif-img">
+                                                                                            <% } %>
+                                                                                                <% } %>
+                                                                    </p>
+                                                                </div>
 
-                                                        <div class="notif-date">
-                                                            <p class="n-d">
-                                                                <%= messageDate %>.<%= messageMonth %>.<%= messageYear
-                                                                            %>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <% } %>
+                                                                <div class="notif-date">
+                                                                    <p class="n-d">
+                                                                        <%= messageDate %>.<%= messageMonth %>.<%=
+                                                                                    messageYear %>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <% } %>
                         </div>
                     </div>
                 </div>
