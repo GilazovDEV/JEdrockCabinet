@@ -91,9 +91,9 @@ function checkUser(username, clientID) {
 
 app.get("/", (request, response) => {
   if (request.query.code) {
-    let clientID = "1095721219275358330";
-    let redirect_uri = "https://pay.uniworlds.fun/";
-    let clientSecret = "BoneeleOyQAMYNKxB8QOc0RPPGVP0qIw";
+    let clientID = "1120769037585092739";
+    let redirect_uri = "http://127.0.0.1:5000";
+    let clientSecret = "-fmooQ4fpjR_dNTdZJ_kpjnqG_QOs2P5";
     let requestPayload = {
       redirect_uri,
       client_id: clientID,
@@ -258,7 +258,7 @@ client.login(botToken);
 client.once("ready", () => {
   console.log("Bot is ready!");
 
-  https.createServer(options, app).listen(443, () => {
-    console.log(`Сервер запущен на порту ${443} https://pay.uniworlds.fun`);
+  app.listen(5000, () => {
+    console.log("Server is running on port 5000");
   });
 });
