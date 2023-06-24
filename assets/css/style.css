@@ -301,6 +301,12 @@ footer {
   background: rgba(85, 66, 116, 0.1);
   border-radius: 16px;
   margin: 20px;
+  overflow-y: scroll;
+}
+
+.acc-acc::-webkit-scrollbar {
+  width: 0px;
+  background-color: none;
 }
 
 .ul-acc {
@@ -446,6 +452,52 @@ footer {
 .gray {
   color: rgba(255, 255, 255, 0.6);
 }
+
+/* about server */
+
+.about__main {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.about__server {
+
+}
+
+/* accordion */
+
+.accordion {
+  background: none;
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0px;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
+
+.panel iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+}
+
+.active {
+  color: #a782e6;
+}
+
 
 /* details */
 

@@ -141,6 +141,27 @@
 
                                 <hr>
 
+                                <div class="about__main">
+                                    <div class="about__server">
+                                        <div class="details-tit">
+                                            <p class="d-tit">Состояние сервера</p>
+                                        </div>
+
+                                        <div class="details-info">
+                                            <p class="d-txt">Онлайн: <span class="change" id="playerCount">Загрузка информации...</span></p>
+                                            <p class="d-txt"><span class="change" id="playerList"></span></p>
+                                            <p class="d-txt">Версия: <span class="change" id="serverVersion"></span></p>
+                                            <button class="accordion">Показать карту</button>
+                                            <div class="panel">
+                                              <iframe id="mapFrame" src="https://map.jedrock.me/" frameborder="0"></iframe>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
                                 <div class="details__main">
                                     <div class="details-block">
                                         <div class="details-tit">
@@ -148,10 +169,10 @@
                                         </div>
 
                                         <div class="details-info">
-                                            <p class="d-txt"><span class="nick">Ник — </span><span class="change">
+                                            <p class="d-txt"><span class="nick">Ник: </span><span class="change">
                                                     <%= nickname %>
                                                 </span></p>
-                                            <p class="d-txt"><span class="email">Почта — </span><span class="change">
+                                            <p class="d-txt"><span class="email">Почта: </span><span class="change">
                                                     <%= email %>
                                                 </span></p>
                                             <p class="d-txt"></p>
@@ -167,6 +188,8 @@
                                                 class="out-s">Log Out</a></p>
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
                     </div>
@@ -225,6 +248,7 @@
     </footer>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/info.js"></script>
 </body>
 
 </html>
