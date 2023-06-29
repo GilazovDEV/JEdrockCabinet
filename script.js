@@ -6,7 +6,7 @@ const crypto = require("crypto");
 const https = require("https");
 
 const generateLink = (id) => {
-  const secretKey = "54c57f0ef0b581e8aef541aa2a314cfd";
+  const secretKey = "q5KVLLtqAQfvJwHykJFJPW-0bZ_im3hU";
   const sum = 75;
   const hashStr = `${id}{up}Проходка JEdrock{up}${sum}{up}${secretKey}`;
   const sign = crypto.createHash("sha256").update(hashStr).digest("hex");
@@ -91,9 +91,9 @@ function checkUser(username, clientID) {
 
 app.get("/", (request, response) => {
   if (request.query.code) {
-    let clientID = "1120769037585092739";
+    let clientID = "1075793695921676330";
     let redirect_uri = "https://pay.uniworlds.fun/";
-    let clientSecret = "-fmooQ4fpjR_dNTdZJ_kpjnqG_QOs2P5";
+    let clientSecret = "hTvD4j31eS22lczoblOWbLj68iBryK8D";
     let requestPayload = {
       redirect_uri,
       client_id: clientID,
