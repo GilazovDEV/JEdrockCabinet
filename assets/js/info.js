@@ -1,4 +1,4 @@
-var url = "https://api.mcsrvstat.us/bedrock/2/jedrock.me";
+var url = "https://api.mcsrvstat.us/bedrock/2/phoenix-pe.ru";
 
 fetch(url)
   .then(function (response) {

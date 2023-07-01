@@ -30,9 +30,9 @@ const client = new Client({
 });
 
 const botToken =
-  "MTA3NTc5MzY5NTkyMTY3NjMzMA.Gz9h2J.JsN7WjyRQ8e1xXv94ZbHGalJMNhRDG9wIjbc_0";
-const serverId = "1064209711068610630";
-const channelId = "1109499754712412182";
+  "MTA5OTEwMDUzNzk4MDQ1Mjk0NQ.GI73DO.R-qqULASu_El32yG-h-dkRJXqUU7pYIn8Ru5Sg";
+const serverId = "761607102254678026";
+const channelId = "1111023534030995557";
 
 const app = express();
 
@@ -91,9 +91,9 @@ function checkUser(username, clientID) {
 
 app.get("/", (request, response) => {
   if (request.query.code) {
-    let clientID = "1075793695921676330";
-    let redirect_uri = "https://pay.uniworlds.fun/";
-    let clientSecret = "hTvD4j31eS22lczoblOWbLj68iBryK8D";
+    let clientID = "1120769037585092739";
+    let redirect_uri = "http://127.0.0.1:5000/";
+    let clientSecret = "2H8ATuekPGPXBUVTQh55lwW7C8bm85VY";
     let requestPayload = {
       redirect_uri,
       client_id: clientID,
@@ -259,7 +259,11 @@ client.login(botToken);
 client.once("ready", () => {
   console.log("Bot is ready!");
 
-  https.createServer(options, app).listen(443, () => {
-    console.log(`Сервер запущен на порту ${443} https://pay.uniworlds.fun`);
+  app.listen(5000, () => {
+    console.log("Server is running on port 5000");
   });
+
+  // https.createServer(options, app).listen(443, () => {
+  //   console.log(`Сервер запущен на порту ${443} https://pay.uniworlds.fun`);
+  // });
 });
