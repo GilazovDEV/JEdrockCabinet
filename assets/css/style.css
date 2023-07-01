@@ -964,6 +964,10 @@ footer {
   .notif-img {
     width: 300px;
   }
+
+  .main-account {
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 456px) {
